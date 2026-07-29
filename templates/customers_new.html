@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CustomerIQ</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/customers_new.css') }}">
+
+</head>
+
+<body>
+
+
+<div class="dashboard">
+
+   <!-- ================= SIDEBAR ================= --> 
+
+    <aside class="sidebar">
+
+    <div class="logo">
+        <h2>CustomerIQ</h2>
+    </div>
+
+    <nav>
+        <ul>
+
+            <li onclick="window.location.href='/'">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </li>
+
+            <li class="active">
+                <i class="fa-solid fa-users"></i>
+                <span>Customers</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Segments</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Analytics</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-database"></i>
+                <span>Database</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </li>
+
+        </ul>
+    </nav>
+
+    <div class="sidebar-card">
+
+        <img src="{{ url_for('static', filename='images/sidebar-graphic.png') }}">
+
+        <h3>CustomerIQ</h3>
+
+        <p>
+            Turning data into meaningful relationships
+        </p>
+
+    </div>
+
+</aside>
+
+    <!-- ================= CONTENT ================= -->
+
+    <main class="content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="menu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </div>
+
+            <div class="top-right">
+
+                <div class="search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        placeholder="Search customer...">
+
+                </div>
+
+                <i class="fa-regular fa-bell bell"></i>
+
+                <img
+                    src="https://i.pravatar.cc/100?img=32"
+                    class="profile">
+
+            </div>
+
+        </header>
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-title">
+
+            <div>
+
+                <h1>
+
+                    Customers
+
+                </h1>
+
+                <p>
+
+                    Manage and explore your customers
+
+                </p>
+
+            </div>
+
+           <button class="add-btn" id="openModal">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Customer
+
+            </button>
+
+        </section>
+
+        <!-- KPI CARDS -->
+
+<!-- ================= KPI CARDS ================= -->
+
+<div class="stats-grid">
+
+    <div class="stat-card">
+
+        <div class="icon purple">
+            <i class="fa-solid fa-users"></i>
+        </div>
+
+        <div class="stat-info">
+            <p>Total Customers</p>
+            <h2>{{ customers|length }}</h2>
+            <span>100% of database</span>
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="icon green">
+            <i class="fa-solid fa-person"></i>
+        </div>
+
+        <div class="stat-info">
+            <p>Male Customers</p>
+
+            <h2>
+                {{ customers|selectattr('Gender','equalto','M')|list|length }}
+            </h2>
+
+            <span>Active</span>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="icon pink">
+            <i class="fa-solid fa-person-dress"></i>
+        </div>
+
+        <div class="stat-info">
+            <p>Female Customers</p>
+
+            <h2>
+                {{ customers|selectattr('Gender','equalto','F')|list|length }}
+            </h2>
+
+            <span>Active</span>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="icon orange">
+            <i class="fa-solid fa-layer-group"></i>
+        </div>
+
+        <div class="stat-info">
+            <p>Customer Segments</p>
+            <h2>5</h2>
+            <span>Clusters</span>
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- Customer Table -->
+
+        <section class="table-section">
+
+    <div class="table-header">
+
+        <h2>Customer List</h2>
+
+        <span>{{ customers|length }} Customers</span>
+
+    </div>
+
+    <!-- Toolbar -->
+
+    <div class="table-toolbar">
+
+        <div class="table-search">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="tableSearch"
+                placeholder="Search customer...">
+
+        </div>
+
+        <div class="table-filters">
+
+            <select id="genderFilter">
+
+                <option value="">Gender</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+
+            </select>
+
+            <select id="clusterFilter">
+
+                <option value="">Cluster</option>
+                <option value="0">Cluster 0</option>
+                <option value="1">Cluster 1</option>
+                <option value="2">Cluster 2</option>
+                <option value="3">Cluster 3</option>
+                <option value="4">Cluster 4</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+    <div class="table-wrapper">
+
+        <table id="customerTable">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Annual Income</th>
+                    <th>Spending Score</th>
+                    <th>Cluster</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for row in customers %}
+
+                <tr>
+
+                    <td>{{ row['CustomerID'] }}</td>
+
+                    <td>
+                        {% if row['Gender']=="M" %}
+                        Male
+                        {% else %}
+                        Female
+                        {% endif %}
+                    </td>
+
+                    <td>{{ row['Age'] }}</td>
+
+                    <td>${{ row['AnnualIncome'] }}</td>
+
+                    <td>{{ row['SpendingScore'] }}</td>
+
+                    <td>
+
+                        {% if row['Cluster']==0 %}
+                        <span class="badge purple">Cluster 0</span>
+
+                        {% elif row['Cluster']==1 %}
+                        <span class="badge blue">Cluster 1</span>
+
+                        {% elif row['Cluster']==2 %}
+                        <span class="badge green">Cluster 2</span>
+
+                        {% elif row['Cluster']==3 %}
+                        <span class="badge orange">Cluster 3</span>
+
+                        {% else %}
+                        <span class="badge red">Cluster 4</span>
+
+                        {% endif %}
+
+                    </td>
+
+                    <td>
+
+                        <button
+                            class="icon-btn edit"
+                            data-id="{{ row['CustomerID'] }}">
+
+                            <i class="fa-solid fa-pen"></i>
+
+                        </button>
+
+                        <button
+                            class="icon-btn delete"
+                            data-id="{{ row['CustomerID'] }}">
+
+                            <i class="fa-solid fa-trash"></i>
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+        <!-- Pagination -->
+
+<div class="pagination">
+
+    {% if page > 1 %}
+    <a href="/customers?page={{page-1}}">
+        ← Previous
+    </a>
+    {% endif %}
+
+    <span>
+        Page {{page}} of {{total_pages}}
+    </span>
+
+    {% if page < total_pages %}
+    <a href="/customers?page={{page+1}}">
+        Next →
+    </a>
+    {% endif %}
+
+</div>
+
+    </div>
+
+    <!-- Pagination -->
+
+    <div class="pagination">
+
+        <span>
+
+           Showing {{start_record}} - {{end_record}} of {{total_customers}} customers
+        </span>
+
+        <div class="pages">
+
+            <button class="page active">1</button>
+            <button class="page">2</button>
+            <button class="page">3</button>
+            <button class="page">
+                <i class="fa-solid fa-angle-right"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+    </main>
+
+</div>
+<!-- ================= ADD / EDIT MODAL ================= -->
+
+<div class="modal" id="customerModal">
+
+    <div class="modal-content">
+
+        <!-- Left Side -->
+
+        <div class="modal-left">
+
+            <div class="illustration">
+
+                <i class="fa-solid fa-users-viewfinder big-icon"></i>
+
+                <h2>CustomerIQ</h2>
+
+                <p>
+
+                    Manage customer information with a premium CRM experience.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="modal-right">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2 id="modalTitle">
+
+                        Add Customer
+
+                    </h2>
+
+                    <p>
+
+                        Fill all customer information
+
+                    </p>
+
+                </div>
+
+                <button id="closeModal" class="close-btn">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+            <form
+                id="customerForm"
+                action="/add_customer"
+                method="POST">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Customer ID</label>
+
+                        <input
+                            type="number"
+                            id="customer_id"
+                            name="customer_id"
+                            required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Gender</label>
+
+                        <select
+                            id="gender"
+                            name="gender"
+                            required>
+
+                            <option value="">Select</option>
+
+                            <option value="M">Male</option>
+
+                            <option value="F">Female</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Age</label>
+
+                        <input
+                            type="number"
+                            id="age"
+                            name="age"
+                            required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Annual Income</label>
+
+                        <input
+                            type="number"
+                            id="income"
+                            name="income"
+                            required>
+
+                    </div>
+
+                    <div class="form-group full-width">
+
+                        <label>Spending Score</label>
+
+                        <input
+                            type="number"
+                            id="score"
+                            name="score"
+                            min="1"
+                            max="100"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-buttons">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="cancelBtn">
+
+                        Cancel
+
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-btn">
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Save Customer
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ================= DELETE MODAL ================= -->
+
+<div class="delete-modal" id="deleteModal">
+
+    <div class="delete-box">
+
+        <div class="delete-icon">
+
+            <i class="fa-solid fa-trash"></i>
+
+        </div>
+
+        <h2>Delete Customer?</h2>
+
+        <p>
+
+            This action cannot be undone.
+            The customer will be permanently removed.
+
+        </p>
+
+        <div class="delete-buttons">
+
+            <button
+                class="cancel-delete"
+                id="cancelDelete">
+
+                Cancel
+
+            </button>
+
+            <button
+                class="confirm-delete"
+                id="confirmDelete">
+
+                Delete
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="toast" class="toast">
+
+    <i id="toastIcon" class="fa-solid fa-circle-check"></i>
+
+    <span id="toastText"></span>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/customers_new.js') }}"></script>
+
+</body>
+
+</html>

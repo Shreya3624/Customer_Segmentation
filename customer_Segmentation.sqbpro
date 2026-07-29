@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="customer_Segmentation.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1139"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="customer_segments" custom_title="0" dock_id="1" table="4,17:maincustomer_segments"/><dock_state state="000000ff00000000fd00000001000000020000000000000000fc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000011300ffffff000000000000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">SELECT * FROM customer_segments;
+SELECT COUNT(*) AS Total_Customers FROM customer_segments;
+SELECT AVG(Age) AS Average_Age FROM customer_segments;
+SELECT AVG(&quot;Annual Income (k$)&quot;) AS Average_Income FROM customer_segments;
+SELECT AVG(&quot;Spending Score (1-100)&quot;) AS Average_Spending FROM customer_segments;
+SELECT Gender,COUNT(*) AS Total FROM customer_segments GROUP BY Gender;
+SELECT &quot;Customer Segments&quot;,COUNT(*) AS Total_Customers FROM customer_segments GROUP BY &quot;Customer Segments&quot;;
+SELECT * FROM customer_segments WHERE &quot;Customer Segments&quot; = 'Premium Income - Very Low Spending';
+SELECT * FROM customer_segments WHERE &quot;Spending Score (1-100)&quot; &gt; 80;
+SELECT * FROM customer_segments WHERE &quot;Annual Income (k$)&quot; &gt; 80;
+SELECT * FROM customer_segments WHERE Age &lt; 30;
+SELECT * FROM customer_segments ORDER BY &quot;Annual Income (k$)&quot; DESC;
+COMMIT;
+SELECT * FROM customer_segments ORDER BY &quot;Spending Score (1-100)&quot; DESC LIMIT 10;
+SELECT * FROM customer_segments ORDER BY &quot;Annual Income (k$)&quot; DESC LIMIT 1;
+SELECT Gender, AVG(&quot;Annual Income (k$)&quot;) AS Average_Income FROM customer_segments GROUP BY Gender;</sql><current_tab id="0"/></tab_sql></sqlb_project>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Settings - CustomerIQ</title>
+
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+    <!-- Settings CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/settings.css') }}">
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+
+
+<body>
+
+
+<div class="app-container">
+
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+
+    <aside class="sidebar">
+
+
+        <div class="logo">
+
+            <h2>CustomerIQ</h2>
+
+        </div>
+
+
+
+        <nav>
+
+            <ul>
+
+
+                <li onclick="window.location.href='/'">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>Dashboard</span>
+
+                </li>
+
+
+
+                <li onclick="window.location.href='/customers'">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <span>Customers</span>
+
+                </li>
+
+
+
+                <li onclick="window.location.href='/segments'">
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                    <span>Segments</span>
+
+                </li>
+
+
+
+                <li onclick="window.location.href='/analytics'">
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                    <span>Analytics</span>
+
+                </li>
+
+
+
+                <li onclick="window.location.href='/database'">
+
+                    <i class="fa-solid fa-database"></i>
+
+                    <span>Database</span>
+
+                </li>
+
+
+
+                <li class="active" onclick="window.location.href='/settings'">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>Settings</span>
+
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+
+    </aside>
+
+
+
+
+
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+
+    <main class="main-content">
+
+
+        <div class="settings-page">
+
+
+
+
+
+            <!-- Header -->
+
+
+            <div class="page-header">
+
+
+                <h1>
+                    Settings
+                </h1>
+
+
+                <p>
+                    Manage your CustomerIQ application preferences and information.
+                </p>
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- Profile Settings -->
+
+
+            <div class="settings-card">
+
+
+                <h2>
+                    <i class="fa-solid fa-user"></i>
+                    Profile Settings
+                </h2>
+
+
+
+                <div class="profile-box">
+
+
+                    <div class="avatar">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Shreya Solanki
+                        </h3>
+
+
+                        <p>
+                            Data Analyst
+                        </p>
+
+
+                        <p>
+                            CustomerIQ Project Owner
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- Application Settings -->
+
+
+            <div class="settings-card">
+
+
+                <h2>
+                    <i class="fa-solid fa-sliders"></i>
+                    Application Settings
+                </h2>
+
+
+
+
+                <div class="setting-grid">
+
+
+
+                    <div class="setting-item">
+
+                        <h3>
+                            Theme
+                        </h3>
+
+                        <p>
+                            Purple dashboard theme enabled
+                        </p>
+
+
+                        <button>
+                            Active
+                        </button>
+
+                    </div>
+
+
+
+
+
+                    <div class="setting-item">
+
+                        <h3>
+                            Notifications
+                        </h3>
+
+                        <p>
+                            Dashboard alerts and updates
+                        </p>
+
+
+                        <button>
+                            Enabled
+                        </button>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="setting-item">
+
+                        <h3>
+                            Data Refresh
+                        </h3>
+
+
+                        <p>
+                            Latest customer data available
+                        </p>
+
+
+                        <button>
+                            Updated
+                        </button>
+
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- Database Information -->
+
+
+            <div class="settings-card">
+
+
+                <h2>
+                    <i class="fa-solid fa-database"></i>
+                    Database Information
+                </h2>
+
+
+
+                <div class="info-list">
+
+
+                    <p>
+                        <strong>Database:</strong> SQLite
+                    </p>
+
+
+                    <p>
+                        <strong>Status:</strong> Connected Successfully
+                    </p>
+
+
+                    <p>
+                        <strong>Operations:</strong> CRUD Supported
+                    </p>
+
+
+                    <p>
+                        <strong>Storage:</strong> Customer Records Database
+                    </p>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- Project Information -->
+
+
+            <div class="settings-card">
+
+
+                <h2>
+                    <i class="fa-solid fa-code"></i>
+                    Project Information
+                </h2>
+
+
+
+                <div class="tech-list">
+
+
+                    <span>
+                        Python Flask
+                    </span>
+
+
+                    <span>
+                        SQLite
+                    </span>
+
+
+                    <span>
+                        Pandas
+                    </span>
+
+
+                    <span>
+                        Machine Learning
+                    </span>
+
+
+                    <span>
+                        K-Means Clustering
+                    </span>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+    </main>
+
+
+
+</div>
+
+
+
+</body>
+
+
+</html>

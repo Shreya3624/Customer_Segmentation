@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Customer Segments</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Segments CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/segments.css') }}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<div class="app-container">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+
+        <div class="logo">
+            <h2>CustomerIQ</h2>
+        </div>
+
+
+        <nav>
+
+            <ul>
+
+
+                <li onclick="window.location.href='/'">
+
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+
+                </li>
+
+
+
+                <li onclick="window.location.href='/customers'">
+
+                    <i class="fa-solid fa-users"></i>
+                    <span>Customers</span>
+
+                </li>
+
+
+
+                <li class="active" onclick="window.location.href='/segments'">
+
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Segments</span>
+
+                </li>
+
+
+
+                <li>
+
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Analytics</span>
+
+                </li>
+
+
+
+                <li>
+
+                    <i class="fa-solid fa-database"></i>
+                    <span>Database</span>
+
+                </li>
+
+
+
+                <li>
+
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+
+    </aside>
+
+
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+
+    <main class="content">
+
+
+        <div class="segments-page">
+
+
+            <!-- Header -->
+
+            <div class="page-header">
+
+                <h1>Customer Segments</h1>
+
+                <p>
+                    Understanding customer behavior through data-driven clustering
+                </p>
+
+            </div>
+
+
+
+
+
+            <!-- Segment Cards -->
+
+
+            <div class="segment-grid">
+
+
+
+                <div class="segment-card">
+
+                    <div class="icon">💎</div>
+
+                    <h2>Cluster 0</h2>
+
+                    <h4>High Income, Low Spending</h4>
+
+                    <p>
+                        Customers with high purchasing power but lower engagement.
+                        They have potential for targeted marketing campaigns.
+                    </p>
+
+                    <span>
+                        Strategy: Premium offers & personalized promotions
+                    </span>
+
+                </div>
+
+
+
+
+                <div class="segment-card">
+
+                    <div class="icon">🔥</div>
+
+                    <h2>Cluster 1</h2>
+
+                    <h4>Young Active Customers</h4>
+
+                    <p>
+                        Customers with moderate income and high spending behavior.
+                    </p>
+
+                    <span>
+                        Strategy: Rewards & recommendation campaigns
+                    </span>
+
+                </div>
+
+
+
+
+                <div class="segment-card">
+
+                    <div class="icon">📊</div>
+
+                    <h2>Cluster 2</h2>
+
+                    <h4>Average Customers</h4>
+
+                    <p>
+                        Customers showing balanced income and spending patterns.
+                    </p>
+
+                    <span>
+                        Strategy: Cross-selling opportunities
+                    </span>
+
+                </div>
+
+
+
+
+                <div class="segment-card">
+
+                    <div class="icon">🎯</div>
+
+                    <h2>Cluster 3</h2>
+
+                    <h4>Low Spending Customers</h4>
+
+                    <p>
+                        Customers with limited spending activity.
+                    </p>
+
+                    <span>
+                        Strategy: Discounts & awareness campaigns
+                    </span>
+
+                </div>
+
+
+
+
+                <div class="segment-card">
+
+                    <div class="icon">👑</div>
+
+                    <h2>Cluster 4</h2>
+
+                    <h4>Loyal Customers</h4>
+
+                    <p>
+                        High-value customers with strong purchasing behavior.
+                    </p>
+
+                    <span>
+                        Strategy: Loyalty programs & VIP benefits
+                    </span>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <!-- Process -->
+
+
+            <div class="process-card">
+
+
+                <h2>
+                    How Customer Segmentation Works
+                </h2>
+
+
+                <div class="process">
+
+                    <div>Customer Data</div>
+
+                    <div>→</div>
+
+                    <div>Data Cleaning</div>
+
+                    <div>→</div>
+
+                    <div>K-Means Clustering</div>
+
+                    <div>→</div>
+
+                    <div>Customer Groups</div>
+
+                    <div>→</div>
+
+                    <div>Business Insights</div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <!-- Benefits -->
+
+
+            <div class="benefits-card">
+
+
+                <h2>
+                    Business Benefits
+                </h2>
+
+
+                <ul>
+
+                    <li>Understand customer purchasing behavior</li>
+
+                    <li>Create personalized marketing strategies</li>
+
+                    <li>Improve customer retention</li>
+
+                    <li>Identify valuable customer groups</li>
+
+                    <li>Support data-driven decision making</li>
+
+                </ul>
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+    </main>
+
+
+
+</div>
+
+
+
+</body>
+
+</html>

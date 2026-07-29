@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Customer Analytics</title>
+
+
+    <!-- Main Dashboard CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+    <!-- Analytics CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/analytics.css') }}">
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<div class="app-container">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+
+        <div class="logo">
+
+            <h2>CustomerIQ</h2>
+
+        </div>
+
+
+
+        <nav>
+
+            <ul>
+
+
+                <li onclick="window.location.href='/'">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>Dashboard</span>
+
+                </li>
+
+
+
+                <li onclick="window.location.href='/customers'">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <span>Customers</span>
+
+                </li>
+
+
+
+                <li onclick="window.location.href='/segments'">
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                    <span>Segments</span>
+
+                </li>
+
+
+
+                <li class="active" onclick="window.location.href='/analytics'">
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                    <span>Analytics</span>
+
+                </li>
+
+
+
+                <li>
+
+                    <i class="fa-solid fa-database"></i>
+
+                    <span>Database</span>
+
+                </li>
+
+
+
+                <li>
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>Settings</span>
+
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+
+    <main class="content">
+
+
+        <div class="analytics-page">
+
+            <!-- Header -->
+
+            <div class="page-header">
+
+
+                <h1>
+                    Customer Analytics
+                </h1>
+
+
+                <p>
+                    Explore customer behavior, patterns, and business insights using data analytics.
+                </p>
+
+
+            </div>
+
+            <!-- Insight Cards -->
+
+
+            <div class="analytics-grid">
+
+
+
+                <div class="analytics-card">
+
+
+                    <div class="icon">
+                        📈
+                    </div>
+
+
+                    <h2>
+                        Customer Analysis
+                    </h2>
+
+
+                    <p>
+                        Analyze customer demographics, spending patterns, and purchasing behavior.
+                    </p>
+
+
+                </div>
+
+                <div class="analytics-card">
+
+
+                    <div class="icon">
+                        💰
+                    </div>
+
+
+                    <h2>
+                        Spending Insights
+                    </h2>
+
+
+                    <p>
+                        Identify high-value customers and understand spending trends.
+                    </p>
+
+
+                </div>
+
+
+                <div class="analytics-card">
+
+
+                    <div class="icon">
+                        👥
+                    </div>
+
+
+                    <h2>
+                        Customer Distribution
+                    </h2>
+
+
+                    <p>
+                        Understand customer groups based on demographics and behavior.
+                    </p>
+
+
+                </div>
+
+                <div class="analytics-card">
+
+
+                    <div class="icon">
+                        🎯
+                    </div>
+
+
+                    <h2>
+                        Segment Performance
+                    </h2>
+
+
+                    <p>
+                        Evaluate different customer clusters for better marketing decisions.
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+            <!-- Customer Behavior -->
+
+
+            <div class="analysis-section">
+
+                <h2>
+                    Customer Behavior Analysis
+                </h2>
+
+                <div class="behavior-grid">
+
+                    <div>
+
+                        <h3>
+                            High Value Customers
+                        </h3>
+
+                        <p>
+                            Customers with strong spending behavior and high engagement.
+                            Suitable for loyalty programs and premium services.
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Potential Customers
+                        </h3>
+
+                        <p>
+                            Customers with purchasing potential who can be converted
+                            through personalized offers.
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Low Engagement Customers
+                        </h3>
+
+                        <p>
+                            Customers requiring targeted campaigns to improve retention.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- Business Insights -->
+
+
+            <div class="insight-section">
+
+
+                <h2>
+                    Key Business Insights
+                </h2>
+
+                <ul>
+
+                    <li>
+                        Customer segmentation identified meaningful customer groups.
+                    </li>
+
+
+                    <li>
+                        Spending behavior helps businesses create personalized strategies.
+                    </li>
+
+
+                    <li>
+                        High-value customers can be targeted with loyalty programs.
+                    </li>
+
+
+                    <li>
+                        Data analytics supports better business decisions.
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+
+            <!-- Workflow -->
+
+
+            <div class="workflow-section">
+
+
+                <h2>
+                    Analytics Workflow
+                </h2>
+
+
+
+                <div class="workflow">
+
+
+                    <div>
+                        Raw Data
+                    </div>
+
+
+                    <span>
+                        →
+                    </span>
+
+
+                    <div>
+                        Data Cleaning
+                    </div>
+
+
+                    <span>
+                        →
+                    </span>
+
+
+                    <div>
+                        Exploratory Analysis
+                    </div>
+
+
+                    <span>
+                        →
+                    </span>
+
+
+                    <div>
+                        Customer Insights
+                    </div>
+
+
+                    <span>
+                        →
+                    </span>
+
+
+                    <div>
+                        Business Strategy
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+</body>
+
+</html>

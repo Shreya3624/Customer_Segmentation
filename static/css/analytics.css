@@ -1,0 +1,361 @@
+ 
+/* ==============================
+   Analytics Page
+============================== */
+
+
+.analytics-page {
+
+    margin-left: 260px;
+
+    padding: 30px;
+
+    background: #f7f5ff;
+
+    min-height: 100vh;
+
+}
+
+
+
+/* ==============================
+   Header
+============================== */
+
+
+.page-header {
+
+    margin-bottom: 30px;
+
+}
+
+
+.page-header h1 {
+
+    font-size: 32px;
+
+    color: #2d1b69;
+
+    margin-bottom: 8px;
+
+}
+
+
+.page-header p {
+
+    color: #6b6b7a;
+
+    font-size: 16px;
+
+}
+
+
+
+
+
+/* ==============================
+   Analytics Cards
+============================== */
+
+
+.analytics-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 22px;
+
+}
+
+
+
+.analytics-card {
+
+    background: rgba(255,255,255,0.85);
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 8px 25px rgba(91,61,245,0.12);
+
+    border: 1px solid rgba(109,76,255,0.15);
+
+    transition: 0.3s;
+
+}
+
+
+
+.analytics-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow: 0 15px 35px rgba(91,61,245,0.20);
+
+}
+
+
+
+.analytics-card .icon {
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.analytics-card h2 {
+
+    color: #5B3DF5;
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.analytics-card p {
+
+    color:#666;
+
+    line-height:1.6;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+/* ==============================
+   Customer Behavior
+============================== */
+
+
+.analysis-section {
+
+    margin-top:30px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+}
+
+
+
+.analysis-section h2 {
+
+    color:#2d1b69;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.behavior-grid {
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+
+
+.behavior-grid div {
+
+    background:#f4f1ff;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+
+.behavior-grid h3 {
+
+    color:#5B3DF5;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.behavior-grid p {
+
+    color:#555;
+
+    line-height:1.5;
+
+}
+
+
+
+
+
+/* ==============================
+   Business Insights
+============================== */
+
+
+.insight-section {
+
+    margin-top:30px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+}
+
+
+
+.insight-section h2 {
+
+    color:#2d1b69;
+
+}
+
+
+
+.insight-section li {
+
+    margin:14px 0;
+
+    color:#555;
+
+}
+
+
+
+
+
+/* ==============================
+   Workflow
+============================== */
+
+
+.workflow-section {
+
+    margin-top:30px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+}
+
+
+
+.workflow-section h2 {
+
+    color:#2d1b69;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.workflow {
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.workflow div {
+
+    background:#6D4CFF;
+
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+
+
+.workflow span {
+
+    font-size:24px;
+
+    color:#5B3DF5;
+
+}
+
+
+
+
+
+/* ==============================
+   Responsive
+============================== */
+
+
+@media(max-width:1200px){
+
+
+    .analytics-grid {
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+}
+
+
+
+@media(max-width:800px){
+
+
+    .analytics-grid,
+
+    .behavior-grid {
+
+        grid-template-columns:1fr;
+
+    }
+
+
+}

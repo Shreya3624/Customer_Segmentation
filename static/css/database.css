@@ -1,0 +1,438 @@
+/* ==============================
+   Database Page
+============================== */
+
+
+.database-page {
+
+    padding: 30px;
+
+    background: #f7f5ff;
+
+    min-height: 100vh;
+
+}
+
+
+
+/* ==============================
+   Header
+============================== */
+
+
+.page-header {
+
+    margin-bottom: 30px;
+
+}
+
+
+.page-header h1 {
+
+    font-size: 32px;
+
+    color: #2d1b69;
+
+    margin-bottom: 8px;
+
+}
+
+
+.page-header p {
+
+    color: #6b6b7a;
+
+    font-size: 16px;
+
+}
+
+
+
+
+
+
+
+/* ==============================
+   Database Cards
+============================== */
+
+
+.database-grid {
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
+
+}
+
+
+
+
+.database-card {
+
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(91,61,245,0.12);
+
+    border:1px solid rgba(109,76,255,0.15);
+
+    transition:0.3s;
+
+
+}
+
+
+
+
+.database-card:hover {
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 35px rgba(91,61,245,0.20);
+
+}
+
+
+
+.database-card .icon {
+
+    font-size:35px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.database-card h2 {
+
+    font-size:18px;
+
+    color:#5B3DF5;
+
+}
+
+
+
+.database-card h3 {
+
+    font-size:28px;
+
+    color:#2d1b69;
+
+    margin:10px 0;
+
+}
+
+
+
+.database-card p {
+
+    color:#666;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+
+
+/* ==============================
+   Table Section
+============================== */
+
+
+.table-section {
+
+
+    margin-top:30px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+.table-section h2 {
+
+
+    color:#2d1b69;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+table {
+
+
+    width:100%;
+
+    border-collapse:collapse;
+
+
+}
+
+
+
+th {
+
+
+    background:#6D4CFF;
+
+    color:white;
+
+    padding:14px;
+
+    text-align:left;
+
+
+}
+
+
+
+td {
+
+
+    padding:14px;
+
+    border-bottom:1px solid #eee;
+
+    color:#555;
+
+
+}
+
+
+
+tr:hover {
+
+
+    background:#f7f5ff;
+
+
+}
+
+
+
+
+
+
+
+/* ==============================
+   Pipeline
+============================== */
+
+
+.pipeline-section {
+
+
+    margin-top:30px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+.pipeline-section h2 {
+
+
+    color:#2d1b69;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.pipeline {
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+
+}
+
+
+
+.pipeline div {
+
+
+    background:#6D4CFF;
+
+    color:white;
+
+    padding:14px 20px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+
+}
+
+
+
+.pipeline span {
+
+
+    font-size:25px;
+
+    color:#5B3DF5;
+
+
+}
+
+
+
+
+
+
+
+/* ==============================
+   Technology Stack
+============================== */
+
+
+.tech-section {
+
+
+    margin-top:30px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+.tech-section h2 {
+
+
+    color:#2d1b69;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.tech-grid {
+
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+
+}
+
+
+
+.tech-grid div {
+
+
+    background:#f4f1ff;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    font-weight:600;
+
+    color:#5B3DF5;
+
+
+}
+
+
+
+
+
+
+
+/* ==============================
+   Responsive
+============================== */
+
+
+@media(max-width:1200px){
+
+
+    .database-grid,
+
+    .tech-grid {
+
+
+        grid-template-columns:repeat(2,1fr);
+
+
+    }
+
+
+}
+
+
+
+@media(max-width:800px){
+
+
+    .database-grid,
+
+    .tech-grid {
+
+
+        grid-template-columns:1fr;
+
+
+    }
+
+
+}

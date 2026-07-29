@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CustomerIQ | Customers</title>
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/customers.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>CustomerIQ</h2>
+
+        </div>
+
+        <ul>
+
+            <li onclick="location.href='/'">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Dashboard
+
+            </li>
+
+            <li class="active">
+
+                <i class="fa-solid fa-users"></i>
+
+                Customers
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-layer-group"></i>
+
+                Segments
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-chart-pie"></i>
+
+                Analytics
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-database"></i>
+
+                Database
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-gear"></i>
+
+                Settings
+
+            </li>
+
+        </ul>
+
+        <div class="sidebar-bottom">
+
+            <img
+                src="{{ url_for('static', filename='images/sidebar-graphic.png') }}"
+                alt="CustomerIQ">
+
+            <h3>CustomerIQ</h3>
+
+            <p>
+
+                Turning customer data into meaningful insights.
+
+            </p>
+
+        </div>
+
+    </aside>
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- ================= PAGE HEADER ================= -->
+
+        <div class="page-header">
+
+            <div class="page-title">
+
+                <h1>Customers</h1>
+
+                <p>
+
+                    Manage and explore your customer database
+
+                </p>
+
+            </div>
+
+            <button
+                class="add-btn"
+                id="openModal">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Customer
+
+            </button>
+
+        </div>
+
+        <!-- ================= SEARCH + FILTER ================= -->
+
+        <div class="toolbar">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="tableSearch"
+                    placeholder="Search customer...">
+
+            </div>
+
+            <div class="toolbar-right">
+
+                <select id="genderTableFilter">
+
+                    <option value="">Gender : All</option>
+
+                    <option value="M">Male</option>
+
+                    <option value="F">Female</option>
+
+                </select>
+
+                <select id="clusterTableFilter">
+
+                    <option value="">Cluster : All</option>
+
+                    <option value="0">Cluster 0</option>
+
+                    <option value="1">Cluster 1</option>
+
+                    <option value="2">Cluster 2</option>
+
+                    <option value="3">Cluster 3</option>
+
+                    <option value="4">Cluster 4</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- ================= CUSTOMER TABLE ================= -->
+
+        <div class="table-card">
+
+            <div class="table-header">
+
+                <h2>
+
+                    Customer List
+
+                </h2>
+
+                <span>
+
+                    {{ customers|length }} Customers
+
+                </span>
+
+            </div>
+
+            <table id="customerTable">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Gender</th>
+
+                        <th>Age</th>
+
+                        <th>Income ($)</th>
+
+                        <th>Spending</th>
+
+                        <th>Cluster</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    {% for row in customers %}
+
+<tr>
+
+    <td>{{ row['CustomerID'] }}</td>
+
+    <td>
+
+        {% if row['Gender']=="M" %}
+
+             Male
+
+        {% else %}
+
+             Female
+
+        {% endif %}
+
+    </td>
+
+    <td>{{ row['Age'] }}</td>
+
+    <td>${{ row['Annual Income (k$)'] }}</td>
+
+    <td>{{ row['Spending Score (1-100)'] }}</td>
+
+    <td>
+
+        {% if row['Cluster']==0 %}
+
+            <span class="badge badge-purple">
+                Cluster 0
+            </span>
+
+        {% elif row['Cluster']==1 %}
+
+            <span class="badge badge-blue">
+                Cluster 1
+            </span>
+
+        {% elif row['Cluster']==2 %}
+
+            <span class="badge badge-green">
+                Cluster 2
+            </span>
+
+        {% elif row['Cluster']==3 %}
+
+            <span class="badge badge-orange">
+                Cluster 3
+            </span>
+
+        {% else %}
+
+            <span class="badge badge-red">
+                Cluster 4
+            </span>
+
+        {% endif %}
+
+    </td>
+
+    <td class="action-column">
+
+        <button
+
+            class="action-btn edit"
+
+            data-id="{{ row['CustomerID'] }}"
+            data-gender="{{ row['Gender'] }}"
+            data-age="{{ row['Age'] }}"
+            data-income="{{ row['Annual Income (k$)'] }}"
+            data-score="{{ row['Spending Score (1-100)'] }}"
+            data-cluster="{{ row['Cluster'] }}">
+
+            <i class="fa-solid fa-pen"></i>
+
+        </button>
+
+        <button
+
+            class="action-btn delete"
+
+            data-id="{{ row['CustomerID'] }}">
+
+            <i class="fa-solid fa-trash"></i>
+
+        </button>
+
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+<!-- ==========================================================
+        ADD / EDIT CUSTOMER MODAL
+=========================================================== -->
+
+<div class="modal" id="customerModal">
+
+    <div class="modal-box">
+
+        <!-- LEFT PANEL -->
+
+        <div class="modal-left">
+
+            <div class="modal-illustration">
+
+                <div class="circle circle1"></div>
+                <div class="circle circle2"></div>
+                <div class="circle circle3"></div>
+
+                <i class="fa-solid fa-users-viewfinder big-icon"></i>
+
+                <h2>CustomerIQ</h2>
+
+                <p>
+
+                    Turning customer data into meaningful insights.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT PANEL -->
+
+        <div class="modal-right">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2 id="modalTitle">
+
+                        Add Customer
+
+                    </h2>
+
+                    <p>
+
+                        Fill customer details below
+
+                    </p>
+
+                </div>
+
+                <button
+                    id="closeModal"
+                    class="close-btn">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+            <form
+                id="customerForm"
+                action="/add_customer"
+                method="POST">
+
+                <div class="form-grid">
+
+                    <!-- Customer ID -->
+
+                    <div class="form-group">
+
+                        <label>Customer ID</label>
+
+                        <input
+                            type="number"
+                            id="customer_id"
+                            name="customer_id"
+                            required>
+
+                    </div>
+
+                    <!-- Gender -->
+
+                    <div class="form-group">
+
+                        <label>Gender</label>
+
+                        <select
+                            id="gender"
+                            name="gender"
+                            required>
+
+                            <option value="">Select Gender</option>
+
+                            <option value="M">Male</option>
+
+                            <option value="F">Female</option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Age -->
+
+                    <div class="form-group">
+
+                        <label>Age</label>
+
+                        <input
+                            type="number"
+                            id="age"
+                            name="age"
+                            required>
+
+                    </div>
+
+                    <!-- Income -->
+
+                    <div class="form-group">
+
+                        <label>Annual Income ($)</label>
+
+                        <input
+                            type="number"
+                            id="income"
+                            name="income"
+                            required>
+
+                    </div>
+
+                    <!-- Spending -->
+
+                    <div class="form-group full-width">
+
+                        <label>Spending Score</label>
+
+                        <input
+                            type="number"
+                            id="score"
+                            name="score"
+                            min="1"
+                            max="100"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <!-- INFO -->
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    Customer Cluster will be predicted automatically using
+                    the segmentation model.
+
+                </div>
+
+                <!-- BUTTONS -->
+
+                <div class="modal-footer">
+
+                    <button
+                        type="button"
+                        id="cancelBtn"
+                        class="cancel-btn">
+
+                        Cancel
+
+                    </button>
+
+                    <button
+                        type="submit"
+                        id="saveBtn"
+                        class="save-btn">
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        <span id="saveText">
+
+                            Save Customer
+
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ==========================================================
+        DELETE CUSTOMER MODAL
+=========================================================== -->
+
+<div class="delete-modal" id="deleteModal">
+
+    <div class="delete-box">
+
+        <div class="delete-icon">
+
+            <i class="fa-solid fa-trash-can"></i>
+
+        </div>
+
+        <h2>
+
+            Delete Customer?
+
+        </h2>
+
+        <p>
+
+            This customer will be permanently removed from the database.
+            This action cannot be undone.
+
+        </p>
+
+        <div class="delete-buttons">
+
+            <button
+                id="cancelDelete"
+                class="cancel-btn">
+
+                Cancel
+
+            </button>
+
+            <button
+                id="confirmDelete"
+                class="delete-btn">
+
+                Delete
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================================
+        FOOTER
+=========================================================== -->
+
+<footer class="footer">
+
+    © 2026 CustomerIQ Dashboard |
+    Developed by <strong>Shreya Solanki</strong>
+
+</footer>
+
+</main>
+
+</div>
+
+<!-- ==========================================================
+        JAVASCRIPT
+=========================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='js/customers.js') }}"></script>
+
+</body>
+
+</html>

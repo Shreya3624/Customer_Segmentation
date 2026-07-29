@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Segmentation Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>CustomerIQ</h2>
+
+        <ul>
+            <li><i class="fas fa-chart-line"></i> Dashboard</li>
+            <li><i class="fas fa-users"></i> Customers</li>
+            <li><i class="fas fa-layer-group"></i> Segments</li>
+            <li><i class="fas fa-chart-pie"></i> Analytics</li>
+            <li><i class="fas fa-file-alt"></i> Reports</li>
+            <li><i class="fas fa-cog"></i> Settings</li>
+        </ul>
+
+    </div>
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <!-- Header -->
+
+        <div class="header">
+
+            <div>
+                <h1>Customer Segmentation Dashboard</h1>
+                <p>Analyze customer behavior using Big Data Analytics</p>
+            </div>
+
+            <div class="profile">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-bell"></i>
+                <img src="https://i.pravatar.cc/60" alt="Profile">
+            </div>
+
+        </div>
+
+        <!-- KPI Cards -->
+
+        <div class="cards">
+
+            <div class="card">
+                <i class="fas fa-users"></i>
+                <h2>{{ total_customers }}</h2>
+                <p>Total Customers</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-user"></i>
+                <h2>{{ average_age }}</h2>
+                <p>Average Age</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-wallet"></i>
+                <h2>{{ average_income }}</h2>
+                <p>Average Income (k$)</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-star"></i>
+                <h2>{{ average_spending }}</h2>
+                <p>Average Spending Score</p>
+            </div>
+
+        </div>
+
+        <!-- Charts Row 1 -->
+
+        <div class="charts">
+
+            <div class="chart-box">
+                <h3>Age Distribution</h3>
+                <canvas id="ageChart"></canvas>
+            </div>
+
+            <div class="chart-box">
+                <h3>Gender Distribution</h3>
+                <canvas id="genderChart"></canvas>
+            </div>
+
+        </div>
+
+        <!-- Charts Row 2 -->
+
+        <div class="charts">
+
+            <div class="chart-box">
+                <h3>Income vs Spending</h3>
+                <canvas id="scatterChart"></canvas>
+            </div>
+
+            <div class="chart-box">
+                <h3>Customer Segments</h3>
+                <canvas id="segmentChart"></canvas>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+
+</body>
+</html>

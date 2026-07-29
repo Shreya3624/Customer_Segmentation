@@ -1,0 +1,322 @@
+/* =================================
+   SETTINGS PAGE
+================================= */
+
+
+.settings-page {
+
+    padding:30px;
+
+    background:#f7f5ff;
+
+    min-height:100vh;
+
+}
+
+
+
+/* =================================
+   Header
+================================= */
+
+
+.page-header {
+
+    margin-bottom:30px;
+
+}
+
+
+.page-header h1 {
+
+    font-size:32px;
+
+    color:#2d1b69;
+
+    margin-bottom:8px;
+
+}
+
+
+.page-header p {
+
+    color:#666;
+
+}
+
+
+
+
+
+/* =================================
+   Settings Cards
+================================= */
+
+
+.settings-card {
+
+    background:white;
+
+    padding:28px;
+
+    border-radius:20px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+
+    transition:.3s;
+
+}
+
+
+.settings-card:hover {
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.settings-card h2 {
+
+    color:#2d1b69;
+
+    font-size:22px;
+
+    margin-bottom:20px;
+
+}
+
+
+.settings-card h2 i {
+
+    color:#5B3DF5;
+
+    margin-right:10px;
+
+}
+
+
+
+
+
+/* =================================
+   Profile Section
+================================= */
+
+
+.profile-box {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+
+.avatar {
+
+    width:80px;
+
+    height:80px;
+
+    border-radius:50%;
+
+    background:#6D4CFF;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:35px;
+
+}
+
+
+.profile-box h3 {
+
+    color:#5B3DF5;
+
+    font-size:22px;
+
+}
+
+
+.profile-box p {
+
+    color:#666;
+
+    margin-top:5px;
+
+}
+
+
+
+
+
+/* =================================
+   Application Settings
+================================= */
+
+
+.setting-grid {
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+
+.setting-item {
+
+    background:#f5f2ff;
+
+    padding:20px;
+
+    border-radius:16px;
+
+}
+
+
+.setting-item h3 {
+
+    color:#5B3DF5;
+
+    margin-bottom:10px;
+
+}
+
+
+.setting-item p {
+
+    color:#666;
+
+    font-size:14px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.setting-item button {
+
+    border:none;
+
+    background:#6D4CFF;
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+/* =================================
+   Database Information
+================================= */
+
+
+.info-list p {
+
+    padding:12px 0;
+
+    border-bottom:1px solid #eee;
+
+    color:#555;
+
+}
+
+
+.info-list strong {
+
+    color:#2d1b69;
+
+}
+
+
+
+
+
+/* =================================
+   Technology Tags
+================================= */
+
+
+.tech-list {
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.tech-list span {
+
+    background:#ede9ff;
+
+    color:#5B3DF5;
+
+    padding:12px 20px;
+
+    border-radius:25px;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+/* =================================
+   Responsive
+================================= */
+
+
+@media(max-width:1000px){
+
+
+    .setting-grid {
+
+        grid-template-columns:1fr;
+
+    }
+
+
+}
+
+
+@media(max-width:700px){
+
+
+    .profile-box {
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+}

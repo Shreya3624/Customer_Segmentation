@@ -1,0 +1,248 @@
+/* ==============================
+   Segments Page
+============================== */
+
+.segments-page {
+    margin-left: 260px;
+    padding: 30px;
+    min-height: 100vh;
+    background: #f7f5ff;
+}
+
+
+/* Header */
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    color: #2d1b69;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #6b6b7a;
+    font-size: 16px;
+}
+
+
+
+/* ==============================
+   Segment Cards
+============================== */
+
+.segment-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+
+.segment-card {
+
+    background: rgba(255,255,255,0.8);
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    box-shadow: 0 8px 25px rgba(91,61,245,0.12);
+
+    transition: 0.3s;
+
+    border: 1px solid rgba(109,76,255,0.15);
+
+}
+
+
+
+.segment-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow: 0 15px 35px rgba(91,61,245,0.2);
+
+}
+
+
+
+.segment-card .icon {
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.segment-card h2 {
+
+    color:#5B3DF5;
+
+    margin-bottom:8px;
+
+}
+
+
+
+.segment-card h4 {
+
+    color:#333;
+
+    margin-bottom:12px;
+
+}
+
+
+
+.segment-card p {
+
+    color:#666;
+
+    line-height:1.6;
+
+    font-size:14px;
+
+}
+
+
+
+.segment-card span {
+
+    display:block;
+
+    margin-top:15px;
+
+    padding:10px;
+
+    background:#f0edff;
+
+    border-radius:10px;
+
+    color:#5B3DF5;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+
+/* ==============================
+   Process Section
+============================== */
+
+
+.process-card,
+.benefits-card {
+
+    margin-top:30px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+}
+
+
+
+.process-card h2,
+.benefits-card h2 {
+
+    color:#2d1b69;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.process {
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.process div {
+
+    background:#6D4CFF;
+
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+
+
+/* Benefits */
+
+
+.benefits-card ul {
+
+    padding-left:20px;
+
+}
+
+
+
+.benefits-card li {
+
+    margin:12px 0;
+
+    color:#555;
+
+}
+
+
+
+/* Responsive */
+
+
+@media(max-width:1000px){
+
+    .segment-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .segment-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

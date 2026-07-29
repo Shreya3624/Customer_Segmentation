@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Customer Database</title>
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/database.css') }}">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<div class="app-container">
+
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+
+    <aside class="sidebar">
+
+
+        <div class="logo">
+
+            <h2>CustomerIQ</h2>
+
+        </div>
+
+
+
+        <nav>
+
+            <ul>
+
+
+                <li onclick="window.location.href='/'">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>Dashboard</span>
+
+                </li>
+
+
+
+                <li onclick="window.location.href='/customers'">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <span>Customers</span>
+
+                </li>
+
+
+
+                <li onclick="window.location.href='/segments'">
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                    <span>Segments</span>
+
+                </li>
+
+
+
+                <li onclick="window.location.href='/analytics'">
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                    <span>Analytics</span>
+
+                </li>
+
+
+
+                <li class="active" onclick="window.location.href='/database'">
+
+                    <i class="fa-solid fa-database"></i>
+
+                    <span>Database</span>
+
+                </li>
+
+
+
+                <li>
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>Settings</span>
+
+                </li>
+
+
+
+            </ul>
+
+        </nav>
+
+
+    </aside>
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+
+    <main class="main-content">
+
+
+        <div class="database-page">
+
+
+
+            <!-- Header -->
+
+
+            <div class="page-header">
+
+
+                <h1>
+                    Customer Database
+                </h1>
+
+
+                <p>
+                    Manage, store, and understand your customer data infrastructure.
+                </p>
+
+
+            </div>
+
+            <!-- Overview Cards -->
+
+
+            <div class="database-grid">
+
+
+
+                <div class="database-card">
+
+
+                    <div class="icon">
+                        🗂️
+                    </div>
+
+
+                    <h2>
+                        Total Records
+                    </h2>
+
+
+                    <h3>
+                        1000+
+                    </h3>
+
+
+                    <p>
+                        Customer records stored in database
+                    </p>
+
+
+                </div>
+
+                <div class="database-card">
+
+
+                    <div class="icon">
+                        🗄️
+                    </div>
+
+
+                    <h2>
+                        Database Type
+                    </h2>
+
+
+                    <h3>
+                        SQLite
+                    </h3>
+
+
+                    <p>
+                        Lightweight relational database system
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <div class="database-card">
+
+
+                    <div class="icon">
+                        ⚡
+                    </div>
+
+
+                    <h2>
+                        Status
+                    </h2>
+
+
+                    <h3>
+                        Active
+                    </h3>
+
+
+                    <p>
+                        Database connected successfully
+                    </p>
+
+
+                </div>
+
+                <div class="database-card">
+
+
+                    <div class="icon">
+                        🔐
+                    </div>
+
+
+                    <h2>
+                        Data Management
+                    </h2>
+
+
+                    <h3>
+                        CRUD
+                    </h3>
+
+
+                    <p>
+                        Add, update, delete and retrieve data
+                    </p>
+
+
+                </div>
+
+
+
+            </div>
+
+            <!-- Database Structure -->
+
+
+            <div class="table-section">
+
+
+                <h2>
+                    Database Structure
+                </h2>
+
+
+
+                <table>
+
+
+                    <tr>
+
+                        <th>
+                            Column
+                        </th>
+
+                        <th>
+                            Data Type
+                        </th>
+
+                        <th>
+                            Description
+                        </th>
+
+                    </tr>
+
+
+
+                    <tr>
+
+                        <td>
+                            Customer ID
+                        </td>
+
+                        <td>
+                            Integer
+                        </td>
+
+                        <td>
+                            Unique customer identifier
+                        </td>
+
+                    </tr>
+
+
+
+
+                    <tr>
+
+                        <td>
+                            Gender
+                        </td>
+
+                        <td>
+                            Text
+                        </td>
+
+                        <td>
+                            Customer gender information
+                        </td>
+
+                    </tr>
+
+
+
+
+
+                    <tr>
+
+                        <td>
+                            Age
+                        </td>
+
+                        <td>
+                            Integer
+                        </td>
+
+                        <td>
+                            Customer age
+                        </td>
+
+                    </tr>
+
+
+
+
+
+                    <tr>
+
+                        <td>
+                            Annual Income
+                        </td>
+
+                        <td>
+                            Integer
+                        </td>
+
+                        <td>
+                            Customer income level
+                        </td>
+
+                    </tr>
+
+
+
+
+
+                    <tr>
+
+                        <td>
+                            Spending Score
+                        </td>
+
+                        <td>
+                            Integer
+                        </td>
+
+                        <td>
+                            Customer spending behavior
+                        </td>
+
+                    </tr>
+
+
+
+
+                    <tr>
+
+                        <td>
+                            Customer Segment
+                        </td>
+
+                        <td>
+                            Integer
+                        </td>
+
+                        <td>
+                            K-Means cluster category
+                        </td>
+
+                    </tr>
+
+
+
+                </table>
+
+
+            </div>
+
+            <!-- Pipeline -->
+
+
+            <div class="pipeline-section">
+
+
+                <h2>
+                    Data Pipeline
+                </h2>
+
+                <div class="pipeline">
+
+
+                    <div>
+                        CSV Dataset
+                    </div>
+
+
+                    <span>
+                        →
+                    </span>
+
+
+                    <div>
+                        Data Cleaning
+                    </div>
+
+
+                    <span>
+                        →
+                    </span>
+
+
+                    <div>
+                        SQLite Database
+                    </div>
+
+
+                    <span>
+                        →
+                    </span>
+
+
+                    <div>
+                        Flask Application
+                    </div>
+
+
+                    <span>
+                        →
+                    </span>
+
+
+                    <div>
+                        Dashboard Insights
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <!-- Technology Stack -->
+
+
+            <div class="tech-section">
+
+
+                <h2>
+                    Technology Stack
+                </h2>
+
+
+                <div class="tech-grid">
+
+
+                    <div>
+                        🐍 Python Flask
+                    </div>
+
+
+                    <div>
+                        🗄️ SQLite
+                    </div>
+
+
+                    <div>
+                        📊 Pandas
+                    </div>
+
+
+                    <div>
+                        🤖 K-Means Clustering
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+
+</div>
+
+
+
+</body>
+
+</html>

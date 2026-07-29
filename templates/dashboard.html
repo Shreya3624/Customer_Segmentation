@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CustomerIQ Dashboard</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>CustomerIQ</h2>
+        </div>
+
+        <ul>
+
+            <li class="active">
+                <i class="fa-solid fa-chart-line"></i>
+                Dashboard
+            </li>
+
+              <li onclick="window.location.href='/customers'">
+                 <i class="fa-solid fa-users"></i>
+                     <span>Customers</span>
+              </li>
+           </a>
+
+            <li onclick="window.location.href='/segments'">
+                   <i class="fa-solid fa-layer-group"></i>
+                    <span>Segments</span>  
+            </li>
+
+            <li onclick="window.location.href='/analytics'">
+                   <i class="fa-solid fa-chart-pie"></i>
+                    <span>Analytics</span>
+            </li>
+
+            <li onclick="window.location.href='/database'">
+                <i class="fa-solid fa-database"></i>
+                   <span>Database</span>
+            </li>
+
+            <li onclick="window.location.href='/settings'">
+                <i class="fa-solid fa-gear"></i>
+                   <span>Settings</span>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header class="header">
+
+    <div>
+
+        <h1>📊 CustomerIQ Dashboard</h1>
+
+        <p>Customer Segmentation using Big Data Analytics</p>
+
+    </div>
+
+    <div class="header-right">
+
+        <input type="text" id="searchInput" placeholder="Search Customer...">
+
+        <a href="/download" class="download-btn">
+            <i class="fa-solid fa-download"></i>
+                 Export Excel
+        </a>
+
+        <i class="fa-solid fa-bell notification"></i>
+
+        <img src="https://i.pravatar.cc/100" class="profile">
+
+    </div>
+
+</header>
+
+        <!-- Welcome Box -->
+
+     <div class="welcome-box">
+
+    <h2>Welcome Back 👋</h2>
+
+    <p style="color: white">Here is your customer analytics overview dashboard</p>
+
+</div>
+
+        <!-- Filters -->
+
+        <div class="filters">
+
+            <select id="genderFilter">
+                <option value="">All Genders</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+
+            <select id="segmentFilter">
+                <option value="">All Segments</option>
+                <option value="Cluster 0">Cluster 0</option>
+                <option value="Cluster 1">Cluster 1</option>
+                <option value="Cluster 2">Cluster 2</option>
+                <option value="Cluster 3">Cluster 3</option>
+                <option value="Cluster 4">Cluster 4</option>
+            </select>
+
+        </div>
+
+        <!-- KPI Cards -->
+
+        <div class="cards">
+
+            <div class="card  card-purple">
+
+                <div class="card-top">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Total Customers</span>
+                </div>
+
+                <h1 id="totalCustomers">{{ total_customers }}</h1>
+
+            </div>
+
+            <div class="card card-red">
+
+                <div class="card-top">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Average Age</span>
+                </div>
+
+                <h1 id="avgAge">{{ average_age }}</h1>
+
+            </div>
+
+            <div class="card card-green">
+
+                <div class="card-top">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <span>Average Income</span>
+                </div>
+
+                <h1 id="avgIncome">{{ average_income }}</h1>
+
+            </div>
+
+            <div class="card card-orange">
+
+                <div class="card-top">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Average Spending</span>
+                </div>
+
+                <h1 id="avgSpending">{{ average_spending }}</h1>
+
+            </div>
+
+        </div>
+
+        <!-- Charts -->
+
+        <div class="charts">
+
+            <div class="chart-card">
+                <h2>📊 Age Distribution</h2>
+                <canvas id="ageChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h2>🥧 Gender Distribution</h2>
+                <canvas id="genderChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h2>🎯 Customer Segments</h2>
+                <canvas id="segmentChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h2>📈 Income vs Spending</h2>
+                <canvas id="incomeChart"></canvas>
+            </div>
+
+        </div>
+
+        <!-- Customer Table -->
+
+        <div class="table-card">
+
+            <h2>📋 Customer Dataset</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th><i class="fa-solid fa-id-card"></i> ID</th>
+                        <th><i class="fa-solid fa-venus-mars"></i> Gender</th>
+                        <th><i class="fa-solid fa-user"></i> Age</th>
+                        <th><i class="fa-solid fa-money-bill-wave"></i> Income</th>
+                        <th><i class="fa-solid fa-chart-line"></i> Score</th>
+                        <th><i class="fa-solid fa-layer-group"></i> Segment</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for row in customers %}
+
+                    <tr>
+
+                        <td>{{ row['CustomerID'] }}</td>
+                        <td>{{ row['Gender'] }}</td>
+                        <td>{{ row['Age'] }}</td>
+                        <td>{{ row['Annual Income (k$)'] }}</td>
+                        <td>{{ row['Spending Score (1-100)'] }}</td>
+
+                       <td>
+                            {% if row['Cluster']==0 %}
+
+                             <span class="badge badge-purple">Cluster 0</span>
+
+                            {% elif row['Cluster']==1 %}
+
+                            <span class="badge badge-blue">Cluster 1</span>
+
+                            {% elif row['Cluster']==2 %}
+
+                            <span class="badge badge-green">Cluster 2</span>
+
+                            {% elif row['Cluster']==3 %}
+
+                            <span class="badge badge-orange">Cluster 3</span>
+
+                            {% else %}
+
+                            <span class="badge badge-red">Cluster 4</span>
+
+                             {% endif %}
+                    </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- Footer -->
+
+        <footer class="footer">
+
+            <p>
+                © 2026 CustomerIQ Dashboard | Big Data Analytics Project | Developed by <strong>Shreya Solanki & Sumit Maurya </strong>
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- Chart Data -->
+
+<script id="age-labels" type="application/json">{{ age_groups|tojson }}</script>
+<script id="age-values" type="application/json">{{ age_values|tojson }}</script>
+
+<script id="gender-labels" type="application/json">{{ gender_labels|tojson }}</script>
+<script id="gender-values" type="application/json">{{ gender_values|tojson }}</script>
+
+<script id="cluster-labels" type="application/json">{{ cluster_labels|tojson }}</script>
+<script id="cluster-values" type="application/json">{{ cluster_values|tojson }}</script>
+
+<script id="income-data" type="application/json">{{ income|tojson }}</script>
+<script id="spending-data" type="application/json">{{ spending|tojson }}</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+</html>
